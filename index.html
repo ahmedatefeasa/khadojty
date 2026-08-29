@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff4f87" />
+  <title>تقبلي تتجوزيني يا خدوجتي؟ 💍❤️</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --pink:#ff4f87;
+      --pink2:#ff7aa7;
+      --dark:#4b1930;
+      --cream:#fff7fa;
+      --white:#fff;
+    }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"Tahoma","Arial",sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, #ffd9e7 0 10%, transparent 11%),
+        radial-gradient(circle at 80% 10%, #ffe8f0 0 12%, transparent 13%),
+        linear-gradient(160deg,#fff8fb 0%,#ffd7e6 48%,#ffc1d8 100%);
+      color:var(--dark);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      position:relative;
+    }
+    .hearts-bg{
+      position:absolute; inset:0; overflow:hidden; pointer-events:none;
+      opacity:.45;
+    }
+    .float-heart{
+      position:absolute;
+      bottom:-50px;
+      font-size:22px;
+      animation:floatUp linear infinite;
+      filter:drop-shadow(0 4px 8px rgba(130,20,55,.12));
+    }
+    @keyframes floatUp{
+      from{transform:translateY(0) rotate(0deg); opacity:0}
+      10%{opacity:.9}
+      to{transform:translateY(-120vh) rotate(360deg);opacity:0}
+    }
+    .card{
+      width:min(100%,430px);
+      min-height:520px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.85);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-radius:30px;
+      padding:28px 20px 24px;
+      box-shadow:0 18px 55px rgba(137,37,73,.20);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .ring{
+      width:110px;height:110px;
+      margin:0 auto 14px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      font-size:64px;
+      background:linear-gradient(145deg,#fff,#ffe2ed);
+      box-shadow:inset 0 0 0 1px #fff,0 12px 30px rgba(238,74,130,.18);
+      animation:pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse{50%{transform:scale(1.06)}}
+    h1{
+      margin:8px auto 8px;
+      font-size:clamp(27px,8vw,38px);
+      line-height:1.35;
+      max-width:360px;
+    }
+    .sub{
+      margin:0 auto 22px;
+      color:#8a4a62;
+      font-size:16px;
+      line-height:1.8;
+      max-width:330px;
+    }
+    .playground{
+      position:relative;
+      height:170px;
+      margin-top:8px;
+      border-radius:24px;
+      background:rgba(255,245,249,.68);
+      border:1px dashed rgba(255,79,135,.25);
+      overflow:hidden;
+    }
+    button{
+      min-width:120px;
+      height:54px;
+      padding:0 22px;
+      border:none;
+      border-radius:18px;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      transition:transform .18s ease, box-shadow .18s ease;
+      touch-action:manipulation;
+    }
+    button:active{transform:scale(.96)}
+    #yesBtn{
+      position:absolute;
+      right:calc(50% + 8px);
+      top:58px;
+      transform:translateX(100%);
+      color:#fff;
+      background:linear-gradient(135deg,var(--pink),#ff2f71);
+      box-shadow:0 10px 24px rgba(255,64,123,.32);
+      z-index:4;
+    }
+    #noBtn{
+      position:absolute;
+      left:calc(50% + 8px);
+      top:58px;
+      transform:translateX(-100%);
+      color:#7a3952;
+      background:#fff;
+      border:1px solid #ffd0df;
+      box-shadow:0 8px 18px rgba(96,31,54,.10);
+      z-index:5;
+    }
+    .tiny{
+      margin-top:14px;
+      font-size:12px;
+      color:#a36a7f;
+    }
+    .celebrate{
+      position:absolute; inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      padding:28px;
+      background:linear-gradient(160deg,#fff5f9 0%,#ffd7e5 100%);
+      z-index:20;
+    }
+    .celebrate.show{display:flex;animation:fadeIn .5s ease both}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .big-heart{
+      font-size:90px;
+      animation:boom .9s ease both,pulse 1.7s 1s infinite;
+    }
+    @keyframes boom{
+      0%{transform:scale(.2) rotate(-15deg);opacity:0}
+      70%{transform:scale(1.18) rotate(6deg);opacity:1}
+      100%{transform:scale(1) rotate(0)}
+    }
+    .celebrate h2{
+      font-size:32px;
+      margin:14px 0 6px;
+    }
+    .celebrate p{
+      margin:0;
+      font-size:18px;
+      color:#874a61;
+      line-height:1.7;
+    }
+    .confetti{
+      position:absolute;
+      width:10px;height:18px;
+      border-radius:4px;
+      top:-20px;
+      animation:fall 3.2s linear forwards;
+      z-index:30;
+      pointer-events:none;
+    }
+    @keyframes fall{
+      to{transform:translate3d(var(--x),115vh,0) rotate(760deg);opacity:.9}
+    }
+    @media (max-width:360px){
+      .card{min-height:500px;padding-inline:14px}
+      .playground{height:190px}
+      #yesBtn,#noBtn{min-width:108px;font-size:17px}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
+
+  <main class="card" id="card">
+    <div class="ring">💍</div>
+    <h1>تقبلي تتجوزيني<br>يا خدوجتي؟ ❤️</h1>
+    <p class="sub">وعد مني أفضل أختارك كل يوم، بنفس الحب وأكتر. ✨</p>
+
+    <div class="playground" id="playground">
+      <button id="yesBtn" type="button">نعم ❤️</button>
+      <button id="noBtn" type="button" aria-label="لا، لكن الزر بيهرب">لا 🙈</button>
+    </div>
+    <div class="tiny">ملحوظة صغيرة: زر «لا» مش متعاون أوي 😌</div>
+
+    <section class="celebrate" id="celebrate" aria-live="polite">
+      <div class="big-heart">❤️</div>
+      <h2>ياااااااه وافقتي! 💍🥹</h2>
+      <p>بحبك يا خدوجتي ❤️<br>وأهو كده مفيش رجوع 😌✨</p>
+    </section>
+  </main>
+
+  <script>
+    const root = document;
+    const noBtn = root.getElementById('noBtn');
+    const yesBtn = root.getElementById('yesBtn');
+    const playground = root.getElementById('playground');
+    const celebrate = root.getElementById('celebrate');
+    const heartsBg = root.getElementById('heartsBg');
+
+    const noTexts = ['لا 🙈','متأكدة؟ 😳','فكري تاني 😭','طب بصي هنا 😂','مش هتمسكي الزر 😜','آخر فرصة 😌'];
+
+    for(let i=0;i<18;i++){
+      const h=document.createElement('span');
+      h.className='float-heart';
+      h.textContent=Math.random()>.35?'❤️':'💕';
+      h.style.left=(Math.random()*100)+'%';
+      h.style.animationDuration=(7+Math.random()*7)+'s';
+      h.style.animationDelay=(-Math.random()*12)+'s';
+      h.style.fontSize=(16+Math.random()*20)+'px';
+      heartsBg.appendChild(h);
+    }
+
+    function moveNo(){
+      const area = playground.getBoundingClientRect();
+      const btn = noBtn.getBoundingClientRect();
+      const pad = 8;
+      const maxX = Math.max(pad, area.width - btn.width - pad);
+      const maxY = Math.max(pad, area.height - btn.height - pad);
+      const x = pad + Math.random() * (maxX - pad);
+      const y = pad + Math.random() * (maxY - pad);
+
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+      noBtn.style.transform = 'none';
+      noBtn.textContent = noTexts[Math.floor(Math.random()*noTexts.length)];
+    }
+
+    ['pointerenter','pointerdown','touchstart'].forEach(ev=>{
+      noBtn.addEventListener(ev, (e)=>{
+        if(ev !== 'pointerenter') e.preventDefault();
+        moveNo();
+      }, {passive:false});
+    });
+
+    function playJoySound(){
+      try{
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if(!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+        const notes = [
+          [523.25,0.00,0.18],[659.25,0.14,0.18],[783.99,0.28,0.20],
+          [1046.50,0.44,0.32],[783.99,0.72,0.16],[1046.50,0.86,0.42]
+        ];
+        notes.forEach(([freq,start,dur])=>{
+          const osc=ctx.createOscillator();
+          const gain=ctx.createGain();
+          osc.type='triangle';
+          osc.frequency.value=freq;
+          gain.gain.setValueAtTime(0.0001, now+start);
+          gain.gain.exponentialRampToValueAtTime(0.22, now+start+0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now+start+dur);
+          osc.connect(gain).connect(ctx.destination);
+          osc.start(now+start);
+          osc.stop(now+start+dur+.03);
+        });
+      }catch(e){}
+    }
+
+    function confettiBurst(){
+      const colors=['#ff2f71','#ff85aa','#ffd166','#8bd3dd','#9b87f5','#ffffff'];
+      for(let i=0;i<90;i++){
+        const c=document.createElement('span');
+        c.className='confetti';
+        c.style.left=(Math.random()*100)+'vw';
+        c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.setProperty('--x',((Math.random()-.5)*180)+'px');
+        c.style.animationDuration=(2.3+Math.random()*2.0)+'s';
+        c.style.animationDelay=(Math.random()*.35)+'s';
+        c.style.width=(6+Math.random()*7)+'px';
+        c.style.height=(10+Math.random()*13)+'px';
+        c.style.transform='rotate('+(Math.random()*180)+'deg)';
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),5000);
+      }
+    }
+
+    yesBtn.addEventListener('click',()=>{
+      celebrate.classList.add('show');
+      playJoySound();
+      confettiBurst();
+      if(navigator.vibrate){ try{ navigator.vibrate([80,40,120]); }catch(e){} }
+    });
+
+    window.addEventListener('resize',()=>{
+      noBtn.removeAttribute('style');
+    });
+  </script>
+</body>
+</html>
